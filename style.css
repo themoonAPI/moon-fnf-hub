@@ -1,0 +1,12 @@
+body{margin:0;background:#000;color:#fff;font-family:Arial}
+header{position:relative;height:100vh;overflow:hidden;text-align:center}
+.bg{width:100%;height:100%;object-fit:cover;position:absolute;opacity:0.9}
+.logo{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80%;z-index:2}
+.sub{position:absolute;bottom:60px;width:100%;font-size:3em;color:#da70d6;text-shadow:0 0 50px #800080;z-index:3}
+#overlay{display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:#000;z-index:9999}
+#player{width:100%;height:100%;border:none}
+#title{position:absolute;top:30px;left:50%;transform:translateX(-50%);font-size:2.5em;color:#ff00ff}
+button{position:absolute;top:30px;right:30px;padding:20px;background:#800080;color:white;border:none;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:50px;padding:80px}
+.card{background:rgba(40,0,80,0.8);border:10px solid #9932cc;border-radius:40px;padding:60px;text-align:center;font-size:2.2em;cursor:pointer;box-shadow:0 0 80px #800080;transition:0.4s}
+.card:hover{transform:scale(1.05);box-shadow:0 0 120px #ff00ff}
