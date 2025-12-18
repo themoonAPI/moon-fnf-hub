@@ -1,1 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moon FNF Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+    function playMod(url, name) {
+        document.getElementById('player').src = url;
+        document.getElementById('title').innerText = name;
+        document.getElementById('overlay').style.display = 'block';
+        document.getElementById('player').requestFullscreen();
+    }
+    function exit() {
+        document.getElementById('overlay').style.display = 'none';
+        document.exitFullscreen();
+    }
+    </script>
+</head>
+<body>
+    <div id="overlay">
+        <iframe id="player" allow="fullscreen" allowfullscreen></iframe>
+        <div id="title"></div>
+        <button onclick="exit()">Exit</button>
+    </div>
 
+    <header>
+        <img src="funkin-banner.jpg" class="bg">
+        <img src="moon-logo.png" class="logo">
+        <p class="sub">MOON• API • Click Mod for Fullscreen Unblocked Play • 500+ Mods</p>
+    </header>
+
+    <main>
+        <div class="grid">
+            <div class="card" onclick="playMod('https://kbhgames.com/game/friday-night-funkin','Base Game')"><p>Base Game</p></div>
+            <div class="card" onclick="playMod('https://kbhgames.com/game/friday-night-funkin-vs-whitty','Vs Whitty')"><p>Vs Whitty</p></div>
+            <div class="card" onclick="playMod('https://kbhgames.com/game/friday-night-funkin-vs-tricky','Vs Tricky')"><p>Vs Tricky</p></div>
+            <!-- Add more mods by copying these lines -->
+        </div>
+    </main>
+</body>
+</html>
