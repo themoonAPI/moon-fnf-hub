@@ -3,11 +3,12 @@ body {
     background: #000;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
 }
 
 header {
     position: relative;
-    height: 100vh;
+    height: 70vh;                      /* reduced from 100vh so grid appears sooner */
     overflow: hidden;
     text-align: center;
     display: flex;
@@ -31,65 +32,66 @@ header {
 
 .logo {
     width: 80%;
-    max-width: 600px;
+    max-width: 550px;
     z-index: 2;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .sub {
-    font-size: 2.5em;                  /* slightly smaller to give more room */
+    font-size: 2.4em;
     color: #da70d6;
     text-shadow: 0 0 50px #800080;
     z-index: 3;
-    margin: 20px 0 80px 0;             /* more space below sub text */
+    margin: 15px 0 30px 0;
 }
 
-/* ─────────────── Search Bar ─────────────── */
+/* ─────────────── Search Bar (now sticky + visible on grid) ─────────────── */
 .search-container {
-    position: relative;
-    z-index: 5;                        /* above background, below overlay elements */
-    width: 92%;
-    max-width: 800px;                  /* wider than before to feel "on the grid" */
-    margin: -60px auto 50px auto;      /* pulls it down over the grid start */
-    padding: 0 20px;
+    position: sticky;
+    top: 20px;                         /* sticks near top when scrolling */
+    z-index: 100;                      /* way above everything else */
+    width: 90%;
+    max-width: 720px;
+    margin: 0 auto 40px auto;
+    padding: 0 15px;
     box-sizing: border-box;
+    background: rgba(20, 0, 50, 0.75); /* semi-transparent panel to stand out */
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(153, 50, 204, 0.6);
+    box-shadow: 0 8px 40px rgba(128, 0, 128, 0.5);
 }
 
 .search-box {
     width: 100%;
-    padding: 22px 30px;
-    font-size: 1.5em;
-    background: rgba(40, 0, 80, 0.85);  /* matches card background more */
-    border: 4px solid #9932cc;
-    border-radius: 60px;
-    color: #ffccff;
+    padding: 20px 28px;
+    font-size: 1.6em;
+    background: transparent;
+    border: 3px solid #9932cc;
+    border-radius: 50px;
+    color: #ffddff;
     outline: none;
-    box-shadow: 0 0 40px rgba(153, 50, 204, 0.7),
-                inset 0 0 15px rgba(0,0,0,0.4);
-    transition: all 0.35s ease;
-    backdrop-filter: blur(8px);
+    box-shadow: 0 0 35px rgba(153, 50, 204, 0.6);
+    transition: all 0.3s ease;
     text-align: center;
 }
 
 .search-box::placeholder {
-    color: #bb88ff;
-    opacity: 0.75;
+    color: #cc99ff;
+    opacity: 0.8;
 }
 
 .search-box:focus {
     border-color: #ff33ff;
-    box-shadow: 0 0 70px #ff00ffaa,
-                inset 0 0 20px rgba(255,0,255,0.15);
-    background: rgba(60, 0, 100, 0.92);
-    transform: scale(1.015);
+    box-shadow: 0 0 60px #ff00ff99;
+    background: rgba(50, 0, 90, 0.4);
 }
 /* ────────────────────────────────────────── */
 
 #overlay {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100vw;
     height: 100vh;
     background: #000;
@@ -139,14 +141,14 @@ button:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 50px;
-    padding: 40px 5vw 80px;           /* reduced top padding since search is above */
-    background: rgba(10, 0, 40, 0.6);  /* subtle backdrop for cards */
+    padding: 60px 5vw 100px;           /* good top padding after search */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(10,0,40,0.5));
     position: relative;
     z-index: 2;
 }
 
 .card {
-    background: rgba(40, 0, 80, 0.82);
+    background: rgba(40, 0, 80, 0.85);
     border: 10px solid #9932cc;
     border-radius: 40px;
     padding: 60px 20px;
