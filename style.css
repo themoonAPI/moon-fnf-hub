@@ -33,52 +33,55 @@ header {
     width: 80%;
     max-width: 600px;
     z-index: 2;
-    margin-bottom: 20px;           /* space below logo */
+    margin-bottom: 30px;
 }
 
 .sub {
-    font-size: 3em;
+    font-size: 2.5em;                  /* slightly smaller to give more room */
     color: #da70d6;
     text-shadow: 0 0 50px #800080;
     z-index: 3;
-    margin: 20px 0 40px 0;         /* space above and below sub text */
+    margin: 20px 0 80px 0;             /* more space below sub text */
 }
 
 /* ─────────────── Search Bar ─────────────── */
 .search-container {
-    position: relative;             /* no longer absolute → flows normally */
-    z-index: 10;
-    width: 90%;
-    max-width: 600px;
-    margin: 0 auto 60px auto;       /* centers it + big space below before grid */
-    text-align: center;
+    position: relative;
+    z-index: 5;                        /* above background, below overlay elements */
+    width: 92%;
+    max-width: 800px;                  /* wider than before to feel "on the grid" */
+    margin: -60px auto 50px auto;      /* pulls it down over the grid start */
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .search-box {
     width: 100%;
-    padding: 18px 24px;
-    font-size: 1.4em;
-    background: rgba(30, 0, 60, 0.7);
-    border: 3px solid #9932cc;
-    border-radius: 50px;
+    padding: 22px 30px;
+    font-size: 1.5em;
+    background: rgba(40, 0, 80, 0.85);  /* matches card background more */
+    border: 4px solid #9932cc;
+    border-radius: 60px;
     color: #ffccff;
     outline: none;
-    box-shadow: 0 0 30px rgba(153, 50, 204, 0.5);
-    transition: all 0.3s ease;
-    backdrop-filter: blur(6px);
+    box-shadow: 0 0 40px rgba(153, 50, 204, 0.7),
+                inset 0 0 15px rgba(0,0,0,0.4);
+    transition: all 0.35s ease;
+    backdrop-filter: blur(8px);
     text-align: center;
 }
 
 .search-box::placeholder {
-    color: #bb66ff;
-    opacity: 0.7;
+    color: #bb88ff;
+    opacity: 0.75;
 }
 
 .search-box:focus {
-    border-color: #ff00ff;
-    box-shadow: 0 0 60px #ff00ff80;
-    background: rgba(50, 0, 90, 0.85);
-    transform: scale(1.03);
+    border-color: #ff33ff;
+    box-shadow: 0 0 70px #ff00ffaa,
+                inset 0 0 20px rgba(255,0,255,0.15);
+    background: rgba(60, 0, 100, 0.92);
+    transform: scale(1.015);
 }
 /* ────────────────────────────────────────── */
 
@@ -101,7 +104,7 @@ header {
 
 #title {
     position: absolute;
-    top: 30px;
+    top: 40px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 2.5em;
@@ -112,9 +115,9 @@ header {
 
 button {
     position: absolute;
-    top: 30px;
-    right: 30px;
-    padding: 20px 36px;
+    top: 40px;
+    right: 40px;
+    padding: 18px 34px;
     background: #800080;
     color: white;
     border: none;
@@ -136,14 +139,14 @@ button:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 50px;
-    padding: 80px 5vw;
-    background: rgba(0,0,0,0.4);    /* optional: slight overlay so cards pop more */
+    padding: 40px 5vw 80px;           /* reduced top padding since search is above */
+    background: rgba(10, 0, 40, 0.6);  /* subtle backdrop for cards */
     position: relative;
     z-index: 2;
 }
 
 .card {
-    background: rgba(40, 0, 80, 0.8);
+    background: rgba(40, 0, 80, 0.82);
     border: 10px solid #9932cc;
     border-radius: 40px;
     padding: 60px 20px;
@@ -152,7 +155,7 @@ button:hover {
     cursor: pointer;
     box-shadow: 0 0 80px #800080;
     transition: 0.4s;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(5px);
 }
 
 .card:hover {
