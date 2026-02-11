@@ -17,53 +17,50 @@ header {
     height: 100%;
     object-fit: cover;
     position: absolute;
-    top: 0;
-    left: 0;
     opacity: 0.9;
-    z-index: 1;
 }
 
 .logo {
-    position: relative;
-    top: 15%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 80%;
-    max-width: 600px;
+    max-width: 700px;
     z-index: 2;
-    margin: 0 auto;
-    display: block;
 }
 
 .sub {
-    position: relative;
-    top: 18%;
-    font-size: 2.8em;
+    position: absolute;
+    bottom: 60px;
+    width: 100%;
+    font-size: 3em;
     color: #da70d6;
     text-shadow: 0 0 50px #800080;
     z-index: 3;
-    margin: 20px 0 40px 0;
 }
 
-/* Search Bar – visible, centered, after logo/sub, before grid */
+/* ─────────────── Search Bar ─────────────── */
 .search-container {
-    position: relative;
-    z-index: 4;
-    width: 85%;
-    max-width: 650px;
-    margin: 0 auto 60px auto;
-    padding: 0 20px;
-    box-sizing: border-box;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 90%;
+    max-width: 600px;
 }
 
 .search-box {
     width: 100%;
-    padding: 18px 30px;
-    font-size: 1.5em;
-    background: rgba(30, 0, 60, 0.8);
+    padding: 18px 24px;
+    font-size: 1.4em;
+    background: rgba(30, 0, 60, 0.7);
     border: 3px solid #9932cc;
     border-radius: 50px;
     color: #ffccff;
     outline: none;
-    box-shadow: 0 0 40px rgba(153, 50, 204, 0.6);
+    box-shadow: 0 0 30px rgba(153, 50, 204, 0.5);
     transition: all 0.3s ease;
     backdrop-filter: blur(6px);
     text-align: center;
@@ -71,20 +68,22 @@ header {
 
 .search-box::placeholder {
     color: #bb66ff;
-    opacity: 0.75;
+    opacity: 0.7;
 }
 
 .search-box:focus {
     border-color: #ff00ff;
-    box-shadow: 0 0 70px #ff00ff80;
-    background: rgba(50, 0, 90, 0.9);
-    transform: scale(1.02);
+    box-shadow: 0 0 60px #ff00ff80;
+    background: rgba(50, 0, 90, 0.85);
+    transform: scale(1.03);
 }
+/* ────────────────────────────────────────── */
 
 #overlay {
     display: none;
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
     background: #000;
@@ -99,24 +98,20 @@ header {
 
 #title {
     position: absolute;
-    top: 40px;
+    top: 30px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 2.6em;
+    font-size: 2.5em;
     color: #ff00ff;
-    text-shadow: 0 0 15px #ff00ff;
     z-index: 10;
     pointer-events: none;
-    background: rgba(0,0,0,0.5);
-    padding: 8px 25px;
-    border-radius: 12px;
 }
 
 button {
     position: absolute;
-    top: 40px;
-    right: 40px;
-    padding: 18px 32px;
+    top: 30px;
+    right: 30px;
+    padding: 20px 36px;
     background: #800080;
     color: white;
     border: none;
@@ -138,10 +133,7 @@ button:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 50px;
-    padding: 60px 5vw 100px;
-    position: relative;
-    z-index: 2;
-    background: rgba(0,0,0,0.5); /* subtle backdrop */
+    padding: 80px 5vw;
 }
 
 .card {
