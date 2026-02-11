@@ -3,20 +3,13 @@ body {
     background: #000;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
-    min-height: 100vh;
 }
 
 header {
     position: relative;
-    height: 70vh;                      /* reduced from 100vh so grid appears sooner */
+    height: 100vh;
     overflow: hidden;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
 }
 
 .bg {
@@ -31,62 +24,62 @@ header {
 }
 
 .logo {
+    position: relative;
+    top: 15%;
     width: 80%;
-    max-width: 550px;
+    max-width: 600px;
     z-index: 2;
-    margin-bottom: 25px;
+    margin: 0 auto;
+    display: block;
 }
 
 .sub {
-    font-size: 2.4em;
+    position: relative;
+    top: 18%;
+    font-size: 2.8em;
     color: #da70d6;
     text-shadow: 0 0 50px #800080;
     z-index: 3;
-    margin: 15px 0 30px 0;
+    margin: 20px 0 40px 0;
 }
 
-/* ─────────────── Search Bar (now sticky + visible on grid) ─────────────── */
+/* Search Bar – visible, centered, after logo/sub, before grid */
 .search-container {
-    position: sticky;
-    top: 20px;                         /* sticks near top when scrolling */
-    z-index: 100;                      /* way above everything else */
-    width: 90%;
-    max-width: 720px;
-    margin: 0 auto 40px auto;
-    padding: 0 15px;
+    position: relative;
+    z-index: 4;
+    width: 85%;
+    max-width: 650px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
     box-sizing: border-box;
-    background: rgba(20, 0, 50, 0.75); /* semi-transparent panel to stand out */
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(153, 50, 204, 0.6);
-    box-shadow: 0 8px 40px rgba(128, 0, 128, 0.5);
 }
 
 .search-box {
     width: 100%;
-    padding: 20px 28px;
-    font-size: 1.6em;
-    background: transparent;
+    padding: 18px 30px;
+    font-size: 1.5em;
+    background: rgba(30, 0, 60, 0.8);
     border: 3px solid #9932cc;
     border-radius: 50px;
-    color: #ffddff;
+    color: #ffccff;
     outline: none;
-    box-shadow: 0 0 35px rgba(153, 50, 204, 0.6);
+    box-shadow: 0 0 40px rgba(153, 50, 204, 0.6);
     transition: all 0.3s ease;
+    backdrop-filter: blur(6px);
     text-align: center;
 }
 
 .search-box::placeholder {
-    color: #cc99ff;
-    opacity: 0.8;
+    color: #bb66ff;
+    opacity: 0.75;
 }
 
 .search-box:focus {
-    border-color: #ff33ff;
-    box-shadow: 0 0 60px #ff00ff99;
-    background: rgba(50, 0, 90, 0.4);
+    border-color: #ff00ff;
+    box-shadow: 0 0 70px #ff00ff80;
+    background: rgba(50, 0, 90, 0.9);
+    transform: scale(1.02);
 }
-/* ────────────────────────────────────────── */
 
 #overlay {
     display: none;
@@ -109,17 +102,21 @@ header {
     top: 40px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 2.5em;
+    font-size: 2.6em;
     color: #ff00ff;
+    text-shadow: 0 0 15px #ff00ff;
     z-index: 10;
     pointer-events: none;
+    background: rgba(0,0,0,0.5);
+    padding: 8px 25px;
+    border-radius: 12px;
 }
 
 button {
     position: absolute;
     top: 40px;
     right: 40px;
-    padding: 18px 34px;
+    padding: 18px 32px;
     background: #800080;
     color: white;
     border: none;
@@ -141,14 +138,14 @@ button:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 50px;
-    padding: 60px 5vw 100px;           /* good top padding after search */
-    background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(10,0,40,0.5));
+    padding: 60px 5vw 100px;
     position: relative;
     z-index: 2;
+    background: rgba(0,0,0,0.5); /* subtle backdrop */
 }
 
 .card {
-    background: rgba(40, 0, 80, 0.85);
+    background: rgba(40, 0, 80, 0.8);
     border: 10px solid #9932cc;
     border-radius: 40px;
     padding: 60px 20px;
@@ -157,7 +154,7 @@ button:hover {
     cursor: pointer;
     box-shadow: 0 0 80px #800080;
     transition: 0.4s;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(4px);
 }
 
 .card:hover {
